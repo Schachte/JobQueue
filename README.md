@@ -1,3 +1,5 @@
+![cloudflare](https://github.com/schachte/JobQueue/actions/workflows/testing.yml/badge.svg)
+
 # Table of Contents
 
 - [Background](#background)
