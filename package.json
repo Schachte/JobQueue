@@ -1,0 +1,24 @@
+{
+  "name": "cloudflare_queue",
+  "version": "1.0.0",
+  "description": "Cloudflare Implementation of Job Queue",
+  "main": "index.js",
+  "scripts": {
+    "start": "LOG_LEVEL=debug nodemon index.js | ./node_modules/.bin/pino-pretty",
+    "test": "mocha --reporter spec"
+  },
+  "keywords": [],
+  "author": "Ryan Schachte",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "express": "^4.17.3",
+    "express-pino-logger": "^7.0.0",
+    "mocha": "^9.2.1",
+    "pino": "^7.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "pino-pretty": "^7.5.1"
+  }
+}

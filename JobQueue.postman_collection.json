@@ -1,0 +1,132 @@
+{
+  "info": {
+    "_postman_id": "3ecdea18-b487-44b7-a53a-3cf88f334b54",
+    "name": "JobQueue",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Enqueue Job",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n \"ID\": 955,\n \"Type\": \"TIME_CRITICAL\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/jobs/enqueue",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["jobs", "enqueue"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Dequeue Job",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/jobs/dequeue",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["jobs", "dequeue"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Retrieve Job",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/jobs/955",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["jobs", "955"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Conclude",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/jobs/955/conclude",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["jobs", "955", "conclude"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
