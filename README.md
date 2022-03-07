@@ -40,7 +40,6 @@ There is a suite of tests that you can locate in the `tests` directory. In order
 ## Security
 
 1. The underlying assumption when working with this module is that security is _not_ a concern. If this were to be a concern, then implementing a layer of authentication with something like OAuth, JWT or JWKS would allow us to pass tokens into the headers of our requests. There would most likely be a middleware layer present in which all requests would verify the token is both valid and not expired. Leveraging a third-party could also work well here like Okta for enterprise grade authentication/authorization.
-
 2. In addition, there would be some notion of rate limiting to prevent DDOS attacks or system abuse. One could argue this could be handled at the reverse proxy layer using something like HAProxy or NGinx, which I'm assuming wouldn't be relevant to add at this layer of the queue.
 
 ## Concurrency

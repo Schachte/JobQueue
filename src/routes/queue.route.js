@@ -19,9 +19,16 @@ const routes = {
   GET: {
     ":jobId": information,
   },
+  DELETE: {
+    ":jobId": undefined
+  }
 };
 
 Object.entries(routes.GET).forEach((route) =>
+  router.get(`/${route[0]}`, route[1])
+);
+
+Object.entries(routes.DELETE).forEach((route) =>
   router.get(`/${route[0]}`, route[1])
 );
 

@@ -1,6 +1,7 @@
 const JobQueue = require("../utils/JobQueue");
 const { logger } = require("../utils/logger");
 const { IN_PROGRESS, CONCLUDED } = require("../utils/constants");
+const { send } = require("express/lib/response");
 
 const jobQueue = new JobQueue();
 
@@ -100,9 +101,29 @@ const information = (req, res) => {
     sendResult(requestedJob[0]);
   } catch (e) {
     logger.error(e);
-    res.status(500).send({ error: e });
+    res.status(404).send({ error: e });
   }
 };
+
+const cancelJob = (req, res) => {
+  const { jobId } = req.params;
+  const sendResult = (payload) => res.status(200).send(payload);
+
+  const cancelledJob1 = jobQueue.cancel(jobId)
+  if (cancelledJob1 != null) {
+      logger.info(`Successfully cancelled the job ${jobId}`)
+      sendResult(jobId)
+  }
+
+  if (jobId in inProgessJobs) {
+    logger.info(`Successfully cancelled the job ${jobId}`)
+    delete inProgessJobs[jobId]
+    sendResult(jobId)
+  } 
+
+  logger.error("The requested job was not found in either of the queued")
+  res.status(404).send({error: "The requested job was not found in either of the queued"})
+}
 
 // Used for tests - can be avoided if we favor a more compositional approach (to-do)
 const wipeJobQueueData = () => {
